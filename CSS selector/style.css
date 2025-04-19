@@ -1,0 +1,45 @@
+body{
+    background-color: coral;
+}
+
+.head{
+    color: darkblue;
+}
+
+#bglime{
+    background-color:aquamarine;
+    
+}
+.head span{
+    color: red;
+}
+p{
+    color: white;
+}
+#para{
+    color: green;
+}
+
+ul li:nth-child(1) a{
+    background-color: yellow;
+
+}
+ul li:nth-child(1) {
+    color: white;
+}
+
+ul li:nth-child(2) a{
+    background-color: blue;
+}
+
+ul li:nth-child(2){
+    color: white;
+}
+
+
+ol li:nth-child(2) {
+    color: blue;
+}
+ol li:nth-child(3) {
+    color: red;
+}

@@ -1,0 +1,207 @@
+* {
+    padding: 0;
+    margin: 0;         /* to avoid by default setup */
+    box-sizing: border-box;
+    background-size: 100% 100%;
+    user-select : none;
+    
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100&display=swap');      /* define font style  */
+
+
+.flex_container {               /*  main div */
+    display: flex;
+    background-color: rgb(45, 42, 42);
+    
+}
+
+
+ /* ===============  left bar ======================== */
+ .main-container_of_watch {            
+   width: 80%;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;               /* to move item into  center */
+   justify-content: center;  
+   gap: 36px;
+   background-color: black;
+   background-size: 100% 100%;
+   border-radius: 20%;
+   z-index: 3;
+  
+    
+    
+}
+
+/*==================   watch area  ======================*/
+
+#watch_display {
+ 
+    border: 2px solid rgb(115, 82, 82);
+    padding: 12px;
+    width: 400px;
+    aspect-ratio: 1;                  /* that width and hight ratio 1 */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 30px 60px -12px inset, rgba(255, 101, 101, 0.3) 0px 18px 36px -18px inset;
+    color: white;
+    font-size: 61px;
+    font-family: 'Roboto Condensed', sans-serif;   
+    letter-spacing: 4px;           /* space between letters*/
+    
+    
+   
+}
+
+/* button's style ======================================*/
+.btn_area {
+
+    font-size: 29px;
+    width: 900px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    font-weight: 570;
+    
+  
+   
+}
+
+.btn_area_child {
+      
+    width: 200px;
+    height: 80px;
+    border: 1px soid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+   border-radius: 60px 60px 60px 60px;
+   box-shadow: rgba(255, 254, 254, 0.19) 0px 10px 20px, rgba(255, 251, 251, 0.23) 0px 6px 6px;
+    border: 4px solid rgb(237, 222, 222);
+    background-color: rgb(3, 74, 168);
+    letter-spacing: 5.6px;
+    font-family: 'Roboto Condensed', sans-serif;
+    cursor: pointer;
+    background-size: 100% 100%;
+  
+    
+
+}
+
+.btn_area_child:hover {
+    background-color: rgb(77, 0, 149);
+    border: 3px solid rgb(178, 166, 166);
+}
+
+/* right bar style ==================================*/
+.time_records {
+     
+    width: 20%;
+    height: 100vh;
+    border: 8px solid rgb(0, 0, 0);
+    border-radius: 15%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 19px;
+    gap: 15px;
+    background-size: 100% 100%;
+    z-index: 2 ;
+
+      
+   
+}
+/* saved items ========================================= */
+#records {
+   border: 2px solid rgb(231, 110, 233);
+   border-radius: 18px 18px 18px 18px;
+    width: 200px;
+   height: 40px;
+   color: rgb(255, 255, 255);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 7px;
+   background-size: 100% 100%;
+   display: none;
+} 
+
+#number {
+    width: 29px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: darkslateblue;
+   font-size: 24px;
+   background-size: 100% 100%;
+}
+
+#show_time {
+    width: 107px;
+    height: 29px;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: darkslategray;
+   font-size: 28px;
+   background-size: 100% 100%;
+}
+
+/* for delete button ==========================================*/
+#delete {
+    width: 36px;
+    height: 29px;
+    border-top-right-radius: 40%;
+    border-bottom-right-radius:40% ;
+    color: white;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 25px;
+   background-color: rgb(3, 74, 168);
+   cursor: pointer;
+   background-size: 100% 100%;
+
+}
+#delete:hover {
+    background-color: rgb(77, 0, 149);
+
+}
+
+#clear_record_btn {
+    background-color: rgb(198, 129, 129);
+    width: 200px;
+    height: 50px;
+    /* position: absolute;
+    top: 650px; */
+
+    border-radius: 25px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: rgb(3, 74, 168);
+    letter-spacing: 5px;
+    border: 5px solid white;
+    
+}
+#clear_record_btn:hover{
+    background-color: rgb(77, 0, 149);
+    box-shadow: rgba(255, 254, 254, 0.19) 0px 10px 20px, rgba(255, 251, 251, 0.23) 0px 6px 6px;
+
+    
+
+
+}

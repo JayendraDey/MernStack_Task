@@ -1,0 +1,1 @@
+export const email = "calling from email.js haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
