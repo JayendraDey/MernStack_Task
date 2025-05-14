@@ -176,6 +176,7 @@
     animation-iteration-count: infinite;
     animation-direction: normal;
     animation-timing-function: linear;
+    mix-blend-mode: multiply;
     
    
     
@@ -193,33 +194,33 @@
     }
     
     20% {
-        transform: translate(-30px, -20px);
+        transform: translate(-24px, -15px);
     }
 
     30% {
-        transform: translate(-50px, -30px);
+        transform: translate(-42px, -24px);
     }
 
     40% {
-        transform: translate(-40px, -50px);
+        transform: translate(-32px, -52px);
     }
 
     50% {
-        transform: translate(-30px, -40px);
+        transform: translate(-23px, -33px);
         width: 100%;
     }
 
     60% {
-        transform: translate(-20px, -30px);
+        transform: translate(-12px, -22px);
         height: 100%;
     }
 
     70% {
-        transform: translate(10px, -20px);
+        transform: translate(4px, -13px);
     }
 
     80% {
-        transform: translate(0, -10px);
+        transform: translate(0, -6px);
     }
 
     100% {
@@ -240,6 +241,7 @@
     width: 35px;
     height: 27px;
     display: none;
+    z-index: 100;
     
     
     
@@ -472,7 +474,8 @@
         width: 92%;
         height: 76%;
     }
-
+    
+    
 
 
 
