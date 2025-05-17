@@ -9,11 +9,11 @@ let newArr = arr.map((ele)=>{
 //Q2 
 
 const grade = (score)=>{
-   if (score >= 90) return "A";
-    else if (score >= 80) return "B";
-    else if (score >= 70) return "C";
-    else if (score >= 60) return "D";
-    else return "F";
+    score >= 90 ? "A" :
+  score >= 80 ? "B" :
+  score >= 70 ? "C" :
+  score >= 60 ? "D" :
+  "F";
 
 }
 
