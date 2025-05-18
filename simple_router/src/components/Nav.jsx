@@ -8,7 +8,7 @@ const Nav = () => {
       <NavLink to={"/dashBord"} className={styles.logo}>
          <img src="https://www.logodesign.net/logo-new/text-in-vintage-banner-9393ld.png" alt="" />
       </NavLink>
-      <div className={styles.home}>Home</div>
+      <NavLink to={"/"} className={styles.home}>Home</NavLink>
       <div className={styles.Login_signup_div}>
         <NavLink to={"/login"} className={styles.login}>Login</NavLink>
         <NavLink to={"/signup"} className={styles.signup}> SignUp</NavLink>
