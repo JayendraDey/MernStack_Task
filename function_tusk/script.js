@@ -1,28 +1,29 @@
-// Q1 
-const arr = [1,2,3,4,5,6,7,8,9]
+// Q1
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-let newArr = arr.map((ele)=>{
-    return ele*ele
-})
+let newArr = arr.map((ele) => {
+  return ele * ele;
+});
 
+//Q2
 
-//Q2 
+const grade = (score) => {
+  return score >= 90
+    ? "A"
+    : score >= 80
+    ? "B"
+    : score >= 70
+    ? "C"
+    : score >= 60
+    ? "D"
+    : "F";
+};
 
-const grade = (score)=>{
-    score >= 90 ? "A" :
-  score >= 80 ? "B" :
-  score >= 70 ? "C" :
-  score >= 60 ? "D" :
-  "F";
-
-}
-
-
-//Q3 
+//Q3
 const car = {
   company: "Toyota",
   model: "Camry",
-  year: 2024
+  year: 2024,
 };
 
 function updateYear(newYear) {
@@ -31,11 +32,10 @@ function updateYear(newYear) {
 
 const { model, year } = car;
 
-
-//Q4 
+//Q4
 const numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const isPrime = num => {
+const isPrime = (num) => {
   if (num < 2) return false;
   for (let i = 2; i <= Math.sqrt(num); i++) {
     if (num % i === 0) return false;
@@ -45,47 +45,43 @@ const isPrime = num => {
 
 const primes = numbers.filter(isPrime);
 
-
-// Q5 
+// Q5
 // map: for traverses and to get new array
 // filter: to fiter particular condition
 // reduce: to add values.
 
-
-
-
-// Q6 
-const fetchData = async (url)=>{
-    const data = await fetch(url)
-    const finalData = await data.json()
-
+// Q6
+const fetchData = async (url) => {
+  try {
+    const data = await fetch(url);
+    const finalData = await data.json();
     console.log(finalData);
-    
+  } catch (error) {
+    console.log(`Error : ${error.message}`);
+  }
+};
+fetchData("https://jsonplaceholder.typicode.com/todos");
 
-}
-// fetchData("https://jsonplaceholder.typicode.com/todos")
-
-
-//Q7 
+//Q7
 
 const person = {
   name: "jay",
   address: {
     street: "123 Main St",
     city: "Metropolis",
-    zip: "12345"
+    zip: "12345",
   },
   contact: {
     phone: "555-1234",
-    email: "alice@example.com"
-  }
+    email: "alice@example.com",
+  },
 };
 
 console.log(newArr);
 console.log(grade(80));
 updateYear(2025);
-console.log(`Model: ${model}, Year: ${year}`); 
-console.log(primes); 
+console.log(`Model: ${model}, Year: ${year}`);
+console.log(primes);
 
 const phoneNumber = person.contact?.phone;
-console.log(phoneNumber); 
+console.log(phoneNumber);
