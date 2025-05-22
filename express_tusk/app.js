@@ -1,6 +1,0 @@
-
-const appData = "hellllllllo"
-
-
-
-
