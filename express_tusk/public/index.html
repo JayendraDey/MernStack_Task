@@ -38,10 +38,7 @@
     <ul id="todoList"></ul>
 
     <script>
-
-     
         const API_URL = 'http://localhost:7000/todos';
-       
 
         async function fetchTodos() {
             const res = await fetch(API_URL);
@@ -50,10 +47,24 @@
             list.innerHTML = '';
             todos.forEach(todo => {
                 const li = document.createElement('li');
-                li.textContent = todo.text;
+                const span = document.createElement('span');
+                span.textContent = todo.text;
+                li.appendChild(span);
+
+                const editBtn = document.createElement('button');
+                editBtn.textContent = 'Edit';
+                editBtn.onclick = () => {
+                    const newText = prompt('Edit todo:', todo.text);
+                    if (newText) {
+                        updateTodo(todo.id, newText);
+                    }
+                };
+
                 const delBtn = document.createElement('button');
                 delBtn.textContent = 'Delete';
                 delBtn.onclick = () => deleteTodo(todo.id);
+
+                li.appendChild(editBtn);
                 li.appendChild(delBtn);
                 list.appendChild(li);
             });
@@ -74,6 +85,15 @@
 
         async function deleteTodo(id) {
             await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+            fetchTodos();
+        }
+
+        async function updateTodo(id, newText) {
+            await fetch(`${API_URL}/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: newText })
+            });
             fetchTodos();
         }
 

@@ -2,7 +2,7 @@ import express from'express';
 import cors from'cors';
 // import path from 'path';
 // import { fileURLToPath } from 'url';
-import { addTodo, deleteTodo, getTodo } from './userController.js';
+import { addTodo, deleteTodo, getTodo, updateTodo } from './userController.js';
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
 const app = express();
@@ -24,6 +24,11 @@ app.post('/todos',addTodo);
 
 // Delete a todo
 app.delete('/todos/:id', deleteTodo);
+
+//update a todo
+app.put('/todos/:id', updateTodo);
+
+
 
 
 //create a server

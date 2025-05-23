@@ -21,3 +21,16 @@ export const deleteTodo = (req, res)=>{
   todos = todos.filter((item)=> item.id !== id)
   res.status(200).json({success : true})
 }
+
+
+// Update todo
+export const updateTodo = (req, res) => {
+  const id = parseInt(req.params.id);
+  const { text } = req.body;
+
+  const index = todos.findIndex(todo => todo.id === id);
+  if (index === -1) return res.status(404).json({ error: "Todo not found" });
+
+  todos[index].text = text;
+  res.status(200).json(todos[index]);
+};
