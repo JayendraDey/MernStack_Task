@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #141414;
+  color: #fff;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0px;
+  background-color: #111;
+  width: 100%;
+  height: 100px;
+  z-index: 200000;
+}
+
+.app-header input {
+  width: 40%;
+  height: 80%;
+  font-size: 30px;
+  background-color: #111;
+  border: none;
+  outline: none;
+   box-shadow: 0px 5px 16px rgb(255, 255, 255);
+   border-radius: 10px;
+   color: #fff;
+   padding-left: 15px;
+}
+
+
+.video-gallery {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  padding: 20px;
+  gap: 15px;
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
+
+
+
+
+.video-thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 470px;
+  height: 500px;
+  cursor: pointer;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.video-thumbnail:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: 96%;
+  
+  display: block;
+}
+
+.video-title {
+  align-self: flex-start;
+  bottom: 5px;
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  font-size: 1.1rem;
+  
+
+
+}
+
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(20, 20, 20, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.video-player-container {
+  position: relative;
+  max-width: 70vw;
+  max-height: 78vh;
+  width: 100%;
+  background: #000;
+  border-radius: 8px;
+  box-shadow: 0 0 40px #000;
+  
+  height: 100%;
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: black;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  font-weight: 900;
+  line-height: 1;
+  user-select: none;
+  transition: color 0.3s ease;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  color: #e50914;
+}
