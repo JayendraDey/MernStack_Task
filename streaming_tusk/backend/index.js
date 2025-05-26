@@ -1,6 +1,6 @@
 import express from "express";
 import fs from "fs";
-import cors from "cors"; // ADD THIS
+import cors from "cors"; 
 
 const PORT = 3900;
 const app = express();
