@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-const URL = "http://localhost:3900/";
+const URL = "https://strem-app-backend.onrender.com/";
 
 
 const VideoPlay = ({ videoId ,setSelectedVideo }) => {
