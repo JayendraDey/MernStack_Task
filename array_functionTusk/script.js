@@ -38,5 +38,6 @@ const countOdd = (arr)=> {
   console.log( "how many odds number present in the given array",total);
 
 }
-
+findMax(arr)
+sumOfArray(arr)
 countOdd(arr)
