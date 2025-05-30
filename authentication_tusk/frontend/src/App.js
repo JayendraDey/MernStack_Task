@@ -21,10 +21,13 @@ function App() {
     <div className="App">
       <HandleAfterLogin setIsAtenticated={setIsAtenticated}/>
       <Routes>
+
         <Route path='/' element={<Navigate to="/login"/>}/>
         <Route path='/login' element={<Login/>}/>
          <Route path='/signup' element={<Signup/>}/>
           <Route path='/home' element={<ProtectRout element={<Home/>}/>}/>
+          {/* <Route path='/*' element={<Login/>}/> */}
+          
       </Routes>
        
     </div>

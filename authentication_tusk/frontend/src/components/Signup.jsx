@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import {ToastContainer} from "react-toastify"
+import { ToastContainer } from "react-toastify";
 import { toastError, toastSuccess } from "../HandleToastify";
 import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios"; 
 
-const URL = "http://localhost:9001/auth/signup"
+// const URL = "http://localhost:9001/auth/signup";
+
+const URL = "https://mernstack-task-upr4.onrender.com/auth/signup"
+
 const Signup = () => {
   const [inp, setInp] = useState({
     name: "",
@@ -11,58 +15,55 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
   });
-  const navigate = useNavigate()
-  
+
+  const navigate = useNavigate();
 
   const setInput = (e) => {
     const { name, value } = e.target;
-    setInp((prev) => {
-      return {
-       ...prev , [name]: value,
-      };
-    });
-  }
+    setInp((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-  const handleSubmit = async (e)=>{
-    e.preventDefault()
-    const { name , email , password , confirmPassword} = inp   
-    if(password !== confirmPassword) {
-        return toastError('Both password are not same')
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { name, email, password, confirmPassword } = inp;
+
+    if (password !== confirmPassword) {
+      return toastError("Both passwords are not the same");
     }
-    if(!name || !email || !password || !confirmPassword) {
-        return toastError('All fields are required')
+
+    if (!name || !email || !password || !confirmPassword) {
+      return toastError("All fields are required");
     }
+
     try {
-        const response = await fetch(URL, {
-            method : "POST",
-            headers : {
-                'content-type' : 'application/json'
-            },
-            body : JSON.stringify(inp)
-        } )
-        const data = await response.json()
-        if(data.success == false) {
-            return toastError(data.message)
-        }else {
-            setTimeout(() => {
-                navigate("/login")
-                
-            }, 3000);
-            return toastSuccess(data.message)
-        }
-        
+      const response = await axios.post(URL, inp, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const { success, message } = response.data;
+
+      if (!success) {
+        return toastError(message);
+      }
+
+      toastSuccess(message);
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
 
     } catch (error) {
-        toastError(error)
-        
+      const errorMsg = error.response?.data?.message || "Something went wrong";
+      toastError(errorMsg);
     }
-
-
-
-  }
+  };
 
   return (
-    
     <div
       style={{
         display: "flex",
@@ -72,7 +73,8 @@ const Signup = () => {
         background: "#f4f4f4",
       }}
     >
-      <form onSubmit={(e)=> handleSubmit(e)}
+      <form
+        onSubmit={handleSubmit}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -90,8 +92,7 @@ const Signup = () => {
           placeholder="Name"
           value={inp.name}
           name="name"
-          
-          onChange={(e) => setInput(e)}
+          onChange={setInput}
           style={{
             padding: "8px",
             borderRadius: "4px",
@@ -103,8 +104,7 @@ const Signup = () => {
           value={inp.email}
           placeholder="Email"
           name="email"
-          onChange={(e) => setInput(e)}
-          
+          onChange={setInput}
           style={{
             padding: "8px",
             borderRadius: "4px",
@@ -116,8 +116,7 @@ const Signup = () => {
           value={inp.password}
           placeholder="Password"
           name="password"
-          onChange={(e) => setInput(e)}
-          
+          onChange={setInput}
           style={{
             padding: "8px",
             borderRadius: "4px",
@@ -129,8 +128,7 @@ const Signup = () => {
           value={inp.confirmPassword}
           placeholder="Confirm Password"
           name="confirmPassword"
-          onChange={(e) => setInput(e)}
-          
+          onChange={setInput}
           style={{
             padding: "8px",
             borderRadius: "4px",
@@ -151,9 +149,11 @@ const Signup = () => {
         >
           Sign Up
         </button>
-        <p>already have account <NavLink to={'/login'} >Login</NavLink>   </p>
+        <p>
+          Already have an account? <NavLink to="/login">Login</NavLink>
+        </p>
       </form>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

@@ -2,23 +2,26 @@ import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { toastError, toastSuccess } from "../HandleToastify";
 import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios"; // ✅ Axios imported
 
-const URL = "http://localhost:9001/auth/login";
+// const URL = "http://localhost:9001/auth/login";
+
+const URL = "https://mernstack-task-upr4.onrender.com/auth/login"
+
 const Login = () => {
   const [inp, setInp] = useState({
     email: "",
     password: "",
   });
+
   const navigate = useNavigate();
 
   const setInput = (e) => {
     const { name, value } = e.target;
-    setInp((prev) => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
+    setInp((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -28,28 +31,32 @@ const Login = () => {
     if (!email || !password) {
       return toastError("All fields are required");
     }
+
     try {
-      const response = await fetch(URL, {
-        method: "POST",
+      const response = await axios.post(URL, inp, {
         headers: {
-          "content-type": "application/json",
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(inp),
       });
-      const data = await response.json();
-      const { jwtToken , name} = data
-      if (data.success == false) {
-        return toastError(data.message);
-      } else {
-        localStorage.setItem('token', jwtToken);
-        localStorage.setItem('loggedInUser' , name)
-        setTimeout(() => {
-          navigate("/home");
-        }, 3000);
-        return toastSuccess(data.message);
+
+      const { success, message, jwtToken, name } = response.data;
+
+      if (!success) {
+        return toastError(message);
       }
+
+      localStorage.setItem("token", jwtToken);
+      localStorage.setItem("loggedInUser", name);
+      toastSuccess(message);
+
+      setTimeout(() => {
+        navigate("/home");
+      }, 3000);
+
     } catch (error) {
-      toastError(error);
+      // Axios error handling
+      const errorMsg = error.response?.data?.message || "Something went wrong";
+      toastError(errorMsg);
     }
   };
 
@@ -64,7 +71,7 @@ const Login = () => {
       }}
     >
       <form
-        onSubmit={(e) => handleSubmit(e)}
+        onSubmit={handleSubmit}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -83,7 +90,7 @@ const Login = () => {
           value={inp.email}
           placeholder="Email"
           name="email"
-          onChange={(e) => setInput(e)}
+          onChange={setInput}
           style={{
             padding: "8px",
             borderRadius: "4px",
@@ -95,7 +102,7 @@ const Login = () => {
           value={inp.password}
           placeholder="Password"
           name="password"
-          onChange={(e) => setInput(e)}
+          onChange={setInput}
           style={{
             padding: "8px",
             borderRadius: "4px",
@@ -114,10 +121,10 @@ const Login = () => {
             cursor: "pointer",
           }}
         >
-          Sign Up
+          Login
         </button>
         <p>
-          Create new account<NavLink to={"/signup"}> signup</NavLink>{" "}
+          Create new account <NavLink to="/signup">signup</NavLink>
         </p>
       </form>
       <ToastContainer />

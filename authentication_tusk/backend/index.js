@@ -11,27 +11,13 @@ const db_url = process.env.MONGO_URL
 const PORT = process.env.PORT || 9001
 const app = express()
 
-
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json())
-app.use(cors()); 
 app.use('/auth' , router)
 app.use('/products' , ProductRouter)
 
 connectToDataBase(db_url)
-
-
-
-
-app.get('/ping' , (req, res)=>{
-    res.send('pong')
-
-})
-
-
-
-
-
 
 
 
