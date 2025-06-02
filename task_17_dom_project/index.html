@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="main-container">
+        <div class="first_page">
+            <div class="nav-bar">
+
+                <h1 class="logo">Logo</h1>
+
+                <div class="sections">
+                    <p>Home</p>
+                    <p>Service</p>
+                    <p>Contace Us</p>
+                    <p>About Us</p>
+                </div>
+                <div class="username">
+                    <p>Username</p>
+                </div>
+            </div>
+        </div>
+        <div class="second_page">
+
+            <div class="second_page_right">
+                <div class="second_page_right_top">
+                    <div class="right_div_heading">
+                        Added items
+                    </div>
+                    <div class="booked_service_heading">
+                        <div>S.No </div>
+                        <div>Sevice Name</div>
+                        <div>Price</div>
+                    </div>
+                    <div class="booked_service">
+                        <!-- <div class="booked_service_details">
+                            <div id="booked_service_id">1</div>
+                            <div id="booked_service_name">fgfhgish</div>
+                            <div id="booked_service_price">200</div>
+                        </div> -->
+                        <!-- <img id="no_service_img" style="width: 40px;margin-top: 20px;" src="https://th.bing.com/th/id/R.cd6db0fc60a9e82582de365105891ed7?rik=IDDTCj60abtlkQ&riu=http%3a%2f%2fimages.clipartpanda.com%2finformation-clipart-missiridia-Universal-information-symbol.png&ehk=ApYu04R5Z%2brjkupLZ2mZVrv7XHrqrYZ2h5XnMk1KBzM%3d&risl=&pid=ImgRaw&r=0" alt=""> -->
+                        <!-- <p id="no_service_img"  style="width: 40px;margin-top: 20px;" >ℹ️</p>
+                        <h3 id="no_service_heading">No item added</h3>
+                        <p id="no_service_p">Add items to the cart from the services bar</p> -->
+                    </div>
+                    <div class="calculate_div">
+                        <div>Total Amount</div>
+                        <div id="TotalAmount">₹0</div>
+                    </div>
+                </div>
+                <div class="second_page_right_bottom">
+                    <div class="second_page_right_bottom_heading">Book Now</div>
+                    <div class="name_inp_div">
+                        <label for="">Full Name</label>
+                        <input type="text" class="innp" required placeholder="name" name="name" id="">
+
+                    </div>
+                    <div class="email_phone_inp_div">
+
+                        <div class="Email_id_div">
+                            <label for="">Email ID</label>
+                            <input type="text" class="innp" required placeholder="email@gmail.com" class="email_inp"
+                                name="email" id="">
+                        </div>
+
+                        <div class="phone_no_div">
+                            <label for="">Phone no</label>
+                            <input type="number" class="innp" required placeholder="xxxxxxxxxx" class="email_inp"
+                                name="phone_no" id="">
+
+
+                        </div>
+
+                    </div>
+                    <button class="book_now_button">Book Now</button>
+                    <!-- <p class="show_error">🔴 Add the items to cart to book</p> -->
+                    <!-- <p class="show_error_green">🟢 Email has been sent successfully</p> -->
+                </div>
+
+            </div>
+            <div class="second_page_left">
+                <div class="heading_2nd_page_left">
+                    <h1>Browse Our Service</h1>
+                    <p>Click On The Add To Cart Button To Add The Services To Your Cart or press skip</p>
+                </div>
+                <hr>
+                <div class="service_details">
+                    <div class="render_services">
+                        <img class="render_services_img" src="https://pixy.org/src/487/4870083.jpg" alt="">
+                        <div class="name_price">
+                            <p>name</p>
+                            <p>price</p>
+                        </div>
+                        <div class="add_skip_button">
+                            <button>Skip item -</button>
+                            <button>Add Item +</button>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="left_bar_footer">
+                    ℹ️ Add the items to the cart and book now
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script type="module" src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "0XQP5oGzz1f94YaBZ",
+            });
+        })();
+    </script>
+</body>
+
+</html>
