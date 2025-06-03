@@ -4,9 +4,9 @@ import { toastError, toastSuccess } from "../HandleToastify";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios"; 
 
-const URL = "http://localhost:7000/auth/signup";
+// const URL = "http://localhost:7000/auth/signup";
 
-// const URL = "https://mernstack-task-upr4.onrender.com/auth/signup"
+const URL = "https://mernstack-task-3.onrender.com/auth/login"
 
 const Signup = () => {
   const [inp, setInp] = useState({
