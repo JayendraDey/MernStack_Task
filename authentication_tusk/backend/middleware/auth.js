@@ -2,7 +2,7 @@
 import JsonWebToken from "jsonwebtoken";
 
 export const checkIsLoggedIn = (req, res, next) => {
-    const auth = req.headers["authorization"];;
+  const auth = req.headers["authorization"];
   if (!auth) {
     return res.status(403).json({ message: "JWT is required" });
   }
