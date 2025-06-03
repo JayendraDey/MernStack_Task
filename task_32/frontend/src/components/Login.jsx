@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { toastError, toastSuccess } from "../HandleToastify";
 import { NavLink, useNavigate } from "react-router-dom";
-import axios from "axios"; 
+import axios from "axios"
 
 const URL = "http://localhost:7000/auth/login";
 
