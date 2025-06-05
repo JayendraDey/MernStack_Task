@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>payment page</title>
+    <link rel="stylesheet" href="Payment.css">
+</head>
+<body>
+       <div class="p1_page">
+            <div class="nav">
+                <div class="logo">
+                    <span class="thala">Thala</span> <span class="number">7.</span>
+                </div>
+                <div class="navigation">
+                   <p onclick="location.href='index.html'">Home</p>
+                    <p onclick="location.href='Product.html'">Product</p>
+                    <p onclick="location.href='Cart.html'">Cart</p>
+                    <p onclick="location.href='Payment.html'">Payment</p>
+                    
+                </div>
+                <div class="search_area">
+                    <div class="search">
+                        <img src="https://www.freeiconspng.com/thumbs/search-icon-png/search-icon-png-5.png" alt="">
+                        <input placeholder="Search" type="text">
+                    </div>
+                    <div class="bucket" onclick="location.href='Cart.html'">
+                        <img src="https://cdn-icons-png.flaticon.com/512/0/454.png" alt="">
+                        <p style="color: white;">1</p>
+                    </div>
+                    <div class="profile">
+                        <img src="https://icon-library.com/images/person-icon-black/person-icon-black-24.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+    
+        <div class="checkout-page">
+            <div class="checkout-left">
+                <h4>Checkout</h4>
+
+                <div class="section">
+                    <label for="email">Contact Details</label>
+                    <input type="text" id="email" placeholder="John Doe" />
+                </div>
+
+                <div class="section">
+                    <label>Payment</label>
+                    <div class="payment-methods">
+                        <button class="active">💳 Card</button>
+                        <button>₿ Crypto</button>
+                        <button>🏦 Bank</button>
+                        <button>⋯</button>
+                    </div>
+
+                    <div class="card-details">
+                        <input type="text" placeholder="Card Number" />
+                        <div class="row">
+                            <input type="text" placeholder="MM/YY" />
+                            <input type="text" placeholder="CVC" />
+                        </div>
+                        <div class="row">
+                            <select>
+                                <option>India</option>
+                                <option>USA</option>
+                            </select>
+                            <input type="text" placeholder="ZIP" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-right">
+                <h3>Order Summary</h3>
+
+                <div class="coupon-box">
+                    <input type="text" placeholder="COUPON CODE" />
+                    <button class="apply-btn">Apply Coupon</button>
+                </div>
+
+                <div class="price-details">
+                    <p>Sub Total <span>₹4,700</span></p>
+                    <p>Taxes (if applicable) <span>₹199</span></p>
+                    <p>Discount <span>₹0</span></p>
+                    <hr />
+                    <p class="total">Total <span>₹4,999</span></p>
+                </div>
+
+                <button class="pay-btn">Pay Now ₹4,999</button>
+
+                <div class="payment-icons">
+                    <img src="https://logodix.com/logo/1763566.png" />
+                    <img src="https://happyinvites.co/wp-content/uploads/2024/07/Razorpay_logo.png" alt="Razorpay" />
+                    <img src="https://1000logos.net/wp-content/uploads/2021/03/Paytm_Logo.png" />
+                    <img
+                        src=" https://static.vecteezy.com/system/resources/previews/040/248/282/non_2x/credit-card-icon-logo-design-template-vector.jpg" />
+                </div>
+            </div>
+        </div>
+    
+</body>
+</html>
