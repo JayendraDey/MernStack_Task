@@ -15,7 +15,7 @@ const url2 = "http://localhost:3000"
 
 // ✅ Enable CORS with credentials for frontend at localhost:3000
 app.use(cors({
-  origin: url2, // React app
+  origin: url1, // React app
   credentials: true,
 }));
 
