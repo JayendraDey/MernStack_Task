@@ -4,7 +4,7 @@ import { toastSuccess, toastError } from '../HandleToastify';
 import { ToastContainer } from "react-toastify";
 import axios from 'axios';
 
-const URL = "http://localhost:5500";
+const URL = "https://mernstack-task-33-backend.onrender.com";
 
 const Home = () => {
   const [loggedUser, setLoggedUser] = useState(null);

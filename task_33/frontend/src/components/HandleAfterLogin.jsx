@@ -9,7 +9,7 @@ const HandleAfterLogin = ({ setIsAtenticated }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get("http://localhost:5500/auth/check", {
+        const res = await axios.get("https://mernstack-task-33-backend.onrender.com/auth/check", {
           withCredentials: true, // important for sending cookies
         });
 

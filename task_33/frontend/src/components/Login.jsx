@@ -5,7 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
-const URL = "http://localhost:5500/auth/login";
+const URL = "https://mernstack-task-33-backend.onrender.com/auth/login";
 
 const Login = () => {
   const [inp, setInp] = useState({

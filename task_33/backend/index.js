@@ -12,7 +12,7 @@ const app = express();
 
 // ✅ Enable CORS with credentials for frontend at localhost:3000
 app.use(cors({
-  origin: "http://localhost:3000", // React app
+  origin: "https://mernstack-task-33-frontend.onrender.com", // React app
   credentials: true,
 }));
 
