@@ -6,6 +6,7 @@ import axios from "axios";
 
 
 const URL = "https://mernstack-task-33-backend.onrender.com/auth/login";
+  const url2  = "http://localhost:5500/auth/login"
 
 const Login = () => {
   const [inp, setInp] = useState({

@@ -10,9 +10,12 @@ dotenv.config();
 const PORT = process.env.PORT || 5500;
 const app = express();
 
+const url1 = "https://mernstack-task-33-frontend.onrender.com"
+const url2 = "http://localhost:3000"
+
 // ✅ Enable CORS with credentials for frontend at localhost:3000
 app.use(cors({
-  origin: "https://mernstack-task-33-frontend.onrender.com", // React app
+  origin: url2, // React app
   credentials: true,
 }));
 

@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import axios from 'axios';
 
 const URL = "https://mernstack-task-33-backend.onrender.com";
+  const url2  = "http://localhost:5500"
 
 const Home = () => {
   const [loggedUser, setLoggedUser] = useState(null);
@@ -34,7 +35,7 @@ const Home = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.get(`${URL}/auth/logout`, {
+      await axios.get(`${url2}/auth/logout`, {
         withCredentials: true,
       });
 

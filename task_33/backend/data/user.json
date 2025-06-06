@@ -34,5 +34,11 @@
     "name": "jay",
     "email": "test@gmail.com",
     "password": "$2b$10$8riYN5ZCSpuQ1p6qw8VGVeB2AvYEC3oiWqxBey/OessDO7fuwbXUS"
+  },
+  {
+    "_id": "1749203124570",
+    "name": "jay",
+    "email": "test11@gmail.com",
+    "password": "$2b$10$OUfkBa2VGr5Vhm/zL0lpeuopsDnkTwIaRyhljrYJWcu6GrMiepiKW"
   }
 ]
