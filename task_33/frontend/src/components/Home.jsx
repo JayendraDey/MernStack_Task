@@ -35,7 +35,7 @@ const Home = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.get(`${url2}/auth/logout`, {
+      await axios.get(`${URL}/auth/logout`, {
         withCredentials: true,
       });
 
