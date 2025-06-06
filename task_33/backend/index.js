@@ -3,19 +3,17 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import jwt from "jsonwebtoken"; // ✅ Needed for /auth/check
+import jwt from "jsonwebtoken";
 import { authRouter } from "./authRouter/authRouter.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 5500;
 const app = express();
 
-const url1 = "https://mernstack-task-33-frontend.onrender.com"
-const url2 = "http://localhost:3000"
+const url1 = "https://mernstack-task-33-frontend.onrender.com"; // your frontend URL
 
-// ✅ Enable CORS with credentials for frontend at localhost:3000
 app.use(cors({
-  origin: url1, // React app
+  origin: url1,
   credentials: true,
 }));
 
@@ -23,10 +21,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-// ✅ Routes
 app.use("/auth", authRouter);
 
-// ✅ Auth Check Route (to verify cookie token)
 app.get("/auth/check", (req, res) => {
   const token = req.cookies.token;
   if (!token) return res.status(401).json({ success: false, message: "Unauthorized" });
@@ -39,12 +35,12 @@ app.get("/auth/check", (req, res) => {
   }
 });
 
-// ✅ Logout
 app.get("/auth/logout", (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
-    secure: false, // true in production (HTTPS)
-    sameSite: "lax", // or "none" if cross-site
+    secure: true,       // true for HTTPS production
+    sameSite: "none",   // cross-site cookie allowed
+    path: "/",
   });
   return res.status(200).json({ success: true, message: "Logged out" });
 });

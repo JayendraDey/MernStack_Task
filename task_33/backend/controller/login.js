@@ -1,4 +1,3 @@
-// backend/controller/authController.js
 import path from "path";
 import fs from "fs/promises";
 import bcrypt from "bcrypt";
@@ -61,11 +60,11 @@ export const login = async (req, res) => {
       { expiresIn: "24h" }
     );
 
-    // Set JWT in HttpOnly cookie
+    // Set JWT in HttpOnly cookie with cross-origin friendly options
     res.cookie("token", jwtToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      secure: true,       // must be true for HTTPS (Render uses HTTPS)
+      sameSite: "none",   // allows cross-site cookie
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
       path: "/",
     });
