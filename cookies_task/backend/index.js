@@ -11,7 +11,7 @@ const app = express()
 
 app.use(cors({
   origin: 'https://mernstack-task-4-cookie-f.onrender.com',
-  credentials: true
+   withCredentials: true
 }));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended : false}))

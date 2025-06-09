@@ -29,8 +29,9 @@ export const setCookie = async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, 10);
 
   res.cookie("user", JSON.stringify({ name, email, password: hashedPassword }), {
-    httpOnly: true,     
-    secure: false,       
+     httpOnly: true,
+    secure: true,
+    sameSite: "None"    
   });
 
   res.json({ message: "Cookie has been set" });
@@ -47,7 +48,8 @@ export const updateCookie = async (req, res) => {
 
   res.cookie("user", JSON.stringify({ name, email, password: hashedPassword }), {
     httpOnly: true,
-    secure: false,
+    secure: true,
+    sameSite: "None"
   });
 
   res.json({ message: "Cookie has been updated" });
