@@ -56,6 +56,10 @@ export const updateCookie = async (req, res) => {
 };
 
 export const deleteCookie = (req, res) => {
-  res.clearCookie("user");
+   res.clearCookie("user", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+  });
   res.json({ message: "Cookie has been deleted" });
 };
