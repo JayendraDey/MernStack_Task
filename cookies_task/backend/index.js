@@ -10,7 +10,7 @@ const app = express()
 
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://mernstack-task-4-cookie-f.onrender.com',
   credentials: true
 }));
 app.use(bodyParser.json())
