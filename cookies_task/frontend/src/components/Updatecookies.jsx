@@ -18,7 +18,7 @@ const Updatecookies = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:9000/update", formData, {
+      const res = await axios.post("https://mernstack-task-4-cookies.onrender.com/update", formData, {
         withCredentials: true,
       });
       alert(res.data.message || "Cookie updated");

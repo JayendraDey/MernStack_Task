@@ -18,7 +18,7 @@ const SetCookies = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:9000/set", formData, {
+      const res = await axios.post("https://mernstack-task-4-cookies.onrender.com/set", formData, {
         withCredentials: true,
       });
 

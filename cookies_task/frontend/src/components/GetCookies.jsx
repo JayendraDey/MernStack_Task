@@ -8,7 +8,7 @@ const GetCookies = () => {
 
   async function fetchData() {
     try {
-      const res = await axios.get("http://localhost:9000/get", {
+      const res = await axios.get("https://mernstack-task-4-cookies.onrender.com/get", {
         withCredentials: true,
       });
       if(!res.data.message) {
@@ -24,7 +24,7 @@ const GetCookies = () => {
     const handleDelete = async () => { 
     try {
       await axios.post(
-        "http://localhost:9000/delete",
+        "https://mernstack-task-4-cookies.onrender.com/delete",
         {}, {withCredentials: true}
       );
       alert("Cookies deleted successfully");
