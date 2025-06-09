@@ -46,7 +46,7 @@ const Login = () => {
         return toastError(message);
       }
 
-      // Store non-sensitive data only (no token)
+   
       localStorage.setItem("loggedInUser", name);
       toastSuccess(message);
 

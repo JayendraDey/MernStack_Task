@@ -20,7 +20,7 @@ const Home = () => {
            console.log(response)
         const { success, user } = response.data;
         if (success) {
-          setLoggedUser(user.name || user.email); // Show name or fallback to email
+          setLoggedUser(user.name || user.email); 
         } else {
           navigate("/login");
         }
@@ -40,7 +40,7 @@ const Home = () => {
       });
 
       toastSuccess("Logout successful");
-      localStorage.removeItem("loggedInUser"); // optional cleanup
+      localStorage.removeItem("loggedInUser"); 
       setTimeout(() => {
         navigate("/login");
       }, 1500);

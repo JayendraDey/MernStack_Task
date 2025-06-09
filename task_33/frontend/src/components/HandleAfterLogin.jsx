@@ -32,7 +32,7 @@ const URL = "https://mernstack-task-33-backend.onrender.com";
           navigate('/login', { replace: true });
         }
       } finally {
-        setAuthChecked(true); // ✅ Important!
+        setAuthChecked(true); 
       }
     };
 

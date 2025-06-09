@@ -10,21 +10,21 @@ const __dirname = dirname(__filename);
 
 const dataFilePath = path.join(__dirname, "../data/user.json");
 
-// Utility to read users
+
 const readUsersFromFile = async () => {
   try {
     const data = await fs.readFile(dataFilePath, "utf-8");
     return JSON.parse(data);
   } catch (err) {
     if (err.code === "ENOENT") {
-      await writeUsersToFile([]); // Create file if not found
+      await writeUsersToFile([]); 
       return [];
     }
     throw err;
   }
 };
 
-// Utility to write users
+
 const writeUsersToFile = async (users) => {
   await fs.writeFile(dataFilePath, JSON.stringify(users, null, 2));
 };
@@ -33,7 +33,7 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Basic validation
+
     if (!email || !password) {
       return res.status(400).json({ message: "Email and password required", success: false });
     }
@@ -60,12 +60,12 @@ export const login = async (req, res) => {
       { expiresIn: "24h" }
     );
 
-    // Set JWT in HttpOnly cookie with cross-origin friendly options
+
     res.cookie("token", jwtToken, {
       httpOnly: true,
-      secure: true,       // must be true for HTTPS (Render uses HTTPS)
-      sameSite: "none",   // allows cross-site cookie
-      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+      secure: true,      
+      sameSite: "none",   
+      maxAge: 24 * 60 * 60 * 1000, 
       path: "/",
     });
 

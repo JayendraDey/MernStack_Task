@@ -17,7 +17,7 @@ const readUsersFromFile = async () => {
     return JSON.parse(data);
   } catch (err) {
     if (err.code === "ENOENT") {
-      await writeUsersToFile([]); // Create file if not found
+      await writeUsersToFile([]); 
       return [];
     }
     throw err;
@@ -33,7 +33,7 @@ export const signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    // Basic validation
+ 
     if (!name || !email || !password) {
       return res.status(400).json({ message: "All fields are required", success: false });
     }
