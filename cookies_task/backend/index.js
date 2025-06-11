@@ -29,19 +29,9 @@ app.post("/create", (req, res) => {
   res.status(201).json({ message: "Resource created", data });
 });
 
-
-app.post("/bad-request", (req, res) => {
-  const { name } = req.body;
-  if (!name) {
-    return res.status(400).json({ error: "Name is required" });
-  }
-  res.json({ message: "Valid request" });
-});
-
 app.get("/unauthorized", (req, res) => {
   res.status(401).json({ error: "Unauthorized access" });
 });
-
 
 
 app.get("/not-found", (req, res) => {
