@@ -1,0 +1,57 @@
+import React from "react";
+import axios from "axios";
+
+const URL = "https://mernstack-task-4-cookies.onrender.com";
+const routes = [
+  { path: "/success", label: "200 OK" },
+  { path: "/create", label: "201 Created", method: "POST" },
+  { path: "/bad-request", label: "400 Bad Request" },
+  { path: "/not-found", label: "404 Not Found" },
+  { path: "/server-error", label: "500 Internal Server Error" },
+];
+
+const HandleHttp = () => {
+  const callRoute = async (path, method = "GET") => {
+    try {
+      const res =
+        method === "POST"
+          ? await axios.post(`${URL}${path}`, { name: "jay" })
+          : await axios.get(`${URL}${path}`);
+
+      console.log(`${res.status}:`, res.data);
+      alert(`${res.status}: ${JSON.stringify(res.data)}`);
+    } catch (err) {
+      if (err.response) {
+        console.log(` ${err.response.status}:`, err.response.data);
+        alert(` ${err.response.status}: ${JSON.stringify(err.response.data)}`);
+      } else {
+        console.log(" Error:", err.message);
+        alert(` Error: ${err.message}`);
+      }
+    }
+  };
+  return (
+    <div>
+      {routes.map((route) => (
+        <button
+          style={{
+            backgroundColor: "#dc3545",
+            color: "white",
+            border: "none",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            cursor: "pointer",
+            fontSize: "16px",
+            marginLeft : "40px"
+          }}
+          key={route.path}
+          onClick={() => callRoute(route.path, route.method)}
+        >
+          {route.label}
+        </button>
+      ))}
+    </div>
+  );
+};
+
+export default HandleHttp;

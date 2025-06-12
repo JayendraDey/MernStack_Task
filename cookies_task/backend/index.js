@@ -19,28 +19,30 @@ app.use(cookieParser());
 
 
 app.use("/", cookiesRouter);
-app.get("/success", (req, res) => {
-  res.status(200).json({ message: "Request successful", status: 200 });
+
+
+app.get('/success', (req, res) => {
+  res.status(200).json({ message: 'Request successful', data: { name: 'Jayendra' } });
 });
 
 
-app.post("/create", (req, res) => {
-  const data = req.body;
-  res.status(201).json({ message: "Resource created", data });
-});
-
-app.get("/unauthorized", (req, res) => {
-  res.status(401).json({ error: "Unauthorized access" });
+app.post('/create', (req, res) => {
+  const user = req.body;
+  res.status(201).json({ message: 'Resource created successfully', user });
 });
 
 
-app.get("/not-found", (req, res) => {
-  res.status(404).json({ error: "Resource not found" });
+app.get('/bad-request', (req, res) => {
+  res.status(400).json({ error: 'Bad request. Missing parameters.' });
+});
+
+app.get('/not-found', (req, res) => {
+  res.status(404).json({ error: 'Resource not found' });
 });
 
 
-app.get("/server-error", (req, res) => {
-  res.status(500).json({ error: "Internal server error" });
+app.get('/server-error', (req, res) => {
+  res.status(500).json({ error: 'Internal server error. Please try again later.' });
 });
 
 
