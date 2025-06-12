@@ -38,7 +38,7 @@ const HandleHttp = () => {
       if (err.response) {
         console.log(` ${err.response.status}:`, err.response.data);
         // alert(` ${err.response.status}: ${JSON.stringify(err.response.data)}`);
-        setMessage(`${err.response.status}`);
+        setMessage(`${err.response.status} : ${err.response.data.error}`);
       } else {
         console.log(" Error:", err.message);
         // alert(` Error: ${err.message}`);
