@@ -22,7 +22,7 @@ app.use("/", cookiesRouter);
 
 
 app.get('/success', (req, res) => {
-  res.status(200).json({ message: 'Request successful', data: { name: 'Jayendra' } });
+  res.status(200).json({ message: 'Request successful', data: { name: 'Jay' } });
 });
 
 

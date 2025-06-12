@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const URL = "https://mernstack-task-4-cookies.onrender.com";
@@ -11,6 +11,16 @@ const routes = [
 ];
 
 const HandleHttp = () => {
+  const [view, setView] = useState(false);
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if (view) {
+      const timer = setTimeout(() => setView(false), 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [view]);
+
   const callRoute = async (path, method = "GET") => {
     try {
       const res =
@@ -19,14 +29,17 @@ const HandleHttp = () => {
           : await axios.get(`${URL}${path}`);
 
       console.log(`${res.status}:`, res.data);
-      alert(`${res.status}: ${JSON.stringify(res.data)}`);
+    //   alert(`${res.status}: ${JSON.stringify(res.data)}`);
+      setMessage(`${res.status} , ${res.data.message}`);
     } catch (err) {
       if (err.response) {
         console.log(` ${err.response.status}:`, err.response.data);
-        alert(` ${err.response.status}: ${JSON.stringify(err.response.data)}`);
+        // alert(` ${err.response.status}: ${JSON.stringify(err.response.data)}`);
+        setMessage(`${err.response.status} , ${err.response.data.message}`);
       } else {
         console.log(" Error:", err.message);
-        alert(` Error: ${err.message}`);
+        // alert(` Error: ${err.message}`);
+        setMessage(`${err.message}`);
       }
     }
   };
@@ -42,14 +55,18 @@ const HandleHttp = () => {
             borderRadius: "5px",
             cursor: "pointer",
             fontSize: "16px",
-            marginLeft : "40px"
+            marginLeft: "40px",
           }}
           key={route.path}
-          onClick={() => callRoute(route.path, route.method)}
+          onClick={() => {
+            callRoute(route.path, route.method);
+             setView(true)
+          }}
         >
           {route.label}
         </button>
       ))}
+      <h3>{view ? message : ""}</h3>
     </div>
   );
 };
