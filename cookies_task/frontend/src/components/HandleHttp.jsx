@@ -16,7 +16,10 @@ const HandleHttp = () => {
 
   useEffect(() => {
     if (view) {
-      const timer = setTimeout(() => setView(false), 4000);
+      const timer = setTimeout(() => {
+        setView(false)
+        setMessage("")
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [view]);
@@ -29,7 +32,7 @@ const HandleHttp = () => {
           : await axios.get(`${URL}${path}`);
 
       console.log(`${res.status}:`, res.data);
-    //   alert(`${res.status}: ${JSON.stringify(res.data)}`);
+      //   alert(`${res.status}: ${JSON.stringify(res.data)}`);
       setMessage(`${res.status} , ${res.data.message}`);
     } catch (err) {
       if (err.response) {
@@ -46,25 +49,27 @@ const HandleHttp = () => {
   return (
     <div>
       {routes.map((route) => (
-        <button
-          style={{
-            backgroundColor: "#dc3545",
-            color: "white",
-            border: "none",
-            padding: "10px 20px",
-            borderRadius: "5px",
-            cursor: "pointer",
-            fontSize: "16px",
-            marginLeft: "40px",
-          }}
-          key={route.path}
-          onClick={() => {
-            callRoute(route.path, route.method);
-             setView(true)
-          }}
-        >
-          {route.label}
-        </button>
+        <div key={route.path}>
+          <button
+            style={{
+              backgroundColor: "#dc3545",
+              color: "white",
+              border: "none",
+              padding: "10px 20px",
+              borderRadius: "5px",
+              cursor: "pointer",
+              fontSize: "16px",
+              marginLeft: "40px",
+            }}
+            
+            onClick={() => {
+              callRoute(route.path, route.method);
+              setView(true);
+            }}
+          >
+            {route.label}
+          </button>
+        </div>
       ))}
       <h3>{view ? message : ""}</h3>
     </div>
