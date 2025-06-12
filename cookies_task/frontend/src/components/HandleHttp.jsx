@@ -38,7 +38,7 @@ const HandleHttp = () => {
       if (err.response) {
         console.log(` ${err.response.status}:`, err.response.data);
         // alert(` ${err.response.status}: ${JSON.stringify(err.response.data)}`);
-        setMessage(`${err.response.status} , ${err.response.data.message}`);
+        setMessage(`${err.response.status}`);
       } else {
         console.log(" Error:", err.message);
         // alert(` Error: ${err.message}`);
@@ -47,19 +47,21 @@ const HandleHttp = () => {
     }
   };
   return (
-    <div>
+    <div >
       {routes.map((route) => (
-        <div key={route.path}>
+        <div key={route.path}   >
           <button
             style={{
               backgroundColor: "#dc3545",
               color: "white",
               border: "none",
-              padding: "10px 20px",
+              padding: "10px ",
               borderRadius: "5px",
               cursor: "pointer",
               fontSize: "16px",
-              marginLeft: "40px",
+              marginTop : "5px",
+              marginLeft : "20px",
+              
             }}
             
             onClick={() => {
@@ -69,6 +71,7 @@ const HandleHttp = () => {
           >
             {route.label}
           </button>
+          
         </div>
       ))}
       <h3>{view ? message : ""}</h3>
