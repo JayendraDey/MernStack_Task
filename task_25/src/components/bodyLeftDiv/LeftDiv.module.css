@@ -1,0 +1,71 @@
+*{
+    font-family: sans-serif;
+}
+.left_div{
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    gap: 70px;
+    height: auto;
+    flex-wrap: wrap;
+    
+}
+.shoeCard{
+    width: 38%;
+    border-radius: 10px;
+    height: 240px;
+    background-color: rgb(255, 223, 209);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    box-shadow: 0px 0px 6px black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.shoeCard img{
+    width: 100%;
+    height: 60%;
+    
+}
+
+.description_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    
+  
+
+}
+.description_div h3{
+    width: 80%;
+    white-space: normal;  
+    word-wrap: break-word;
+   
+}
+    
+.description_div button {
+    outline: none;
+    border: none;
+    background-color: rgb(8, 185, 255);
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+    
+
+
+
+
+
+
+
+
+
+
