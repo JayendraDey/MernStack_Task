@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 
-const url = "http://localhost:8080/submit";
+const url = "https://mernstack-task-34-backend.onrender.com/submit";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ function App() {
 
   async function getUserData() {
     try {
-      const data = await axios.get("http://localhost:8080/getdata", {});
+      const data = await axios.get("https://mernstack-task-34-backend.onrender.com/getdata", {});
 
       console.log(data.data.userData);
       setDbData(data.data.userData);
@@ -161,9 +161,9 @@ function App() {
         }}    
       >
         <p style={{position : "fixed" , top : "0" , color : blink? "red" : "orange" , fontWeight : "600"}}>Getting data form MongoDB</p>
-        {dbData?.map((item) => {
+        {dbData?.map((item , i) => {
           return (
-            <div
+            <div  key={item._id}
               style={{
                 display: "flex",
                 alignItems: "flex-start",
