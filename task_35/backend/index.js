@@ -22,5 +22,5 @@ connectDB(process.env.MONGO_URL)
 app.use("/", userRouter);
 app.use("/", postRouter);
 
-const PORT = 8080;
+const PORT = 8011;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

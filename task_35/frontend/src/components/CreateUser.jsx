@@ -7,7 +7,7 @@ export default function CreateUser() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/users", user);
+      await axios.post("https://mernstack-task-35.onrender.com/users", user);
       alert("User created successfully");
       setUser({ name: "", email: "" });
     } catch (error) {

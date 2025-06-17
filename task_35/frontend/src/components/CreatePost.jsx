@@ -8,7 +8,7 @@ export default function CreatePost() {
 
    const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/users");
+        const res = await axios.get("https://mernstack-task-35.onrender.com/users");
         setUsers(res.data);
         console.log(res.data)
       } catch (error) {
@@ -23,7 +23,7 @@ export default function CreatePost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/posts", post);
+      await axios.post("https://mernstack-task-35.onrender.com/posts", post);
       setPost({ title: "", content: "", user: "" });
       alert("Post created successfully");
     } catch (error) {

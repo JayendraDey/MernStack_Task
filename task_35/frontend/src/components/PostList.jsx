@@ -7,7 +7,7 @@ export default function PostList() {
 
    const fetchPosts = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/posts");
+        const res = await axios.get("https://mernstack-task-35.onrender.com/posts");
         setPosts(res.data);
       } catch (error) {
         console.error("Error fetching posts:", error.message);
