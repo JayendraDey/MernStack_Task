@@ -1,6 +1,4 @@
-import { Post } from "../models/Post.js";
-
-
+import { Post } from "../models/post.js";
 
 export const createPost = async (req, res) => {
   try {
@@ -16,7 +14,6 @@ export const createPost = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 
 export const getPosts = async (req, res) => {
   try {
