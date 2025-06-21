@@ -4,7 +4,7 @@ import axios from "axios";
 const App = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [files, setFiles] = useState([]);
-  const [previewImage, setPreviewImage] = useState(null); // State to hold selected image for preview
+  const [previewImage, setPreviewImage] = useState(null); 
 
   const fetchFiles = async () => {
     const res = await axios.get("https://mernstack-task-36-backend.onrender.com/files");
