@@ -7,7 +7,7 @@ const App = () => {
   const [previewImage, setPreviewImage] = useState(null); // State to hold selected image for preview
 
   const fetchFiles = async () => {
-    const res = await axios.get("http://localhost:5000/files");
+    const res = await axios.get("https://mernstack-task-36-backend.onrender.com/files");
     setFiles(res.data);
   };
 
@@ -20,13 +20,13 @@ const App = () => {
     const formData = new FormData();
     formData.append("file", selectedFile);
 
-    await axios.post("http://localhost:5000/upload", formData);
+    await axios.post("https://mernstack-task-36-backend.onrender.com/upload", formData);
     fetchFiles();
     setSelectedFile(null);
   };
 
   const handleImageClick = (filePath) => {
-    setPreviewImage(`http://localhost:5000/${filePath}`);
+    setPreviewImage(`https://mernstack-task-36-backend.onrender.com/${filePath}`);
   };
 
   return (
@@ -37,12 +37,15 @@ const App = () => {
 
       <h3>Uploaded Images</h3>
       <ul>
+        
         {files.map((file) => (
           <li key={file._id} style={{ cursor: "pointer", color: "blue" }} onClick={() => handleImageClick(file.path)}>
             {file.filename}
+            
           </li>
         ))}
       </ul>
+
       <p style={{color:"red"}}>Only photo can visible</p>
       {previewImage && (
         <div>
