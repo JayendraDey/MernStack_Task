@@ -11,7 +11,7 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:8080/data', {
+    await axios.post('https://mernstack-task-37-backend.onrender.com/data', {
       category: form.category,
       value: Number(form.value),
     });
@@ -20,7 +20,7 @@ function App() {
   };
 
   const fetchAggregatedData = async () => {
-    const res = await axios.get('http://localhost:8080/aggregate');
+    const res = await axios.get('https://mernstack-task-37-backend.onrender.com/aggregate');
     setAggregatedData(res.data);
   };
 
